@@ -1,0 +1,1 @@
+Insttallation for omarchy config
