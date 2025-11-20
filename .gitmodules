@@ -1,3 +1,6 @@
 [submodule "config/nvim"]
 	path = config/nvim
 	url = https://github.com/danielucho345/neovim
+[submodule "config/oh-my-posh"]
+	path = config/oh-my-posh
+	url = https://github.com/danielucho345/oh_my_posh
