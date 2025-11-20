@@ -13,10 +13,7 @@ if [ ! -d "$INSTALL_DIR" ]; then
   exit 1
 fi
 
-echo "installing .dotfiles git submodules..."
-
-./install-dotfiles.sh
-
+echo "=== Installing packages ==="
 # Iterate over all .sh files in the install folder
 for script in "$INSTALL_DIR"/*.sh; do
   # Ensure the script is executable
@@ -33,6 +30,12 @@ for script in "$INSTALL_DIR"/*.sh; do
     failure+=("$(basename "$script")")
   fi
 done
+
+echo "=== Finish Installing packages ==="
+
+echo "installing .dotfiles git submodules..."
+
+./install-dotfiles.sh
 
 # Print summary
 echo
