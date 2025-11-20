@@ -1,6 +1,0 @@
-[submodule "config-stow/nvim/.config/nvim"]
-	path = config-stow/nvim/.config/nvim
-	url = https://github.com/danielucho345/neovim
-[submodule "config/nvim/.config/nvim"]
-	path = config/nvim/.config/nvim
-	url = https://github.com/danielucho345/neovim

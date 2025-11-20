@@ -27,6 +27,8 @@ for package in "$CONFIG_DIR"/*; do
       [ -e "$item" ] || continue
       item_name=$(basename "$item")
       target="$HOME/$root_folder/$item_name"
+
+      echo "$target $item_name"
       if [ -e "$target" ] || [ -L "$target" ]; then
         echo "    Removing: $target"
         rm -rf "$target"
