@@ -25,10 +25,15 @@ for package in "$CONFIG_DIR"/*; do
   pkgname=$(basename "$package")
   target="$HOME/.config/$pkgname"
 
-  if [ -e "$target" ] ; then
-    echo "  Removing existing folder/symlink: $target"
-    rm -rf "$target"
+  
+  if [ -d "$target" ] && [ ! -L "$target" ]; then
+      echo "  Removing existing folder (not a symlink): $target"
+      rm -rf "$target"
   fi
+
+  if [ ! -L "$target" ]; then 
+    echo "Existing stowed fodler ===> $target" 
+  fi 
 done
 
 echo "Stowing packages…"
