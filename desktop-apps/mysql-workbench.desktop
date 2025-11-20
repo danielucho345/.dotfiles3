@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=MySQL Workbench
+Name=MySQL Workbench test
 Comment=MySQL Database Design, Administration and Development Tool
-Exec=GDK_BACKEND=wayland GDK_SCALE=1 mysql-workbench %f 
+Exec=env GDK_SCALE=1 mysql-workbench %f 
 Terminal=false
 Type=Application
 Icon=mysql-workbench

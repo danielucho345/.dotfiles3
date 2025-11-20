@@ -37,6 +37,8 @@ echo "installing .dotfiles git submodules..."
 
 ./install-dotfiles.sh
 
+./desktop-generator.sh
+
 # Print summary
 echo
 echo "========== INSTALL SUMMARY =========="
