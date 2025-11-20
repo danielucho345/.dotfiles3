@@ -3,6 +3,7 @@
 INSTALL_DIR="./install"
 
 # Arrays to keep track of success/failure
+echo "====== START Main Installator ======"
 success=()
 failure=()
 
@@ -11,6 +12,10 @@ if [ ! -d "$INSTALL_DIR" ]; then
   echo "Install directory not found: $INSTALL_DIR"
   exit 1
 fi
+
+echo "installing .dotfiles git submodules..."
+
+./install-dotfiles.sh
 
 # Iterate over all .sh files in the install folder
 for script in "$INSTALL_DIR"/*.sh; do
@@ -47,5 +52,5 @@ else
   echo
   echo "All scripts ran successfully!"
 fi
-echo "===================================="
 
+echo "====== FINISH Main Installator ======"

@@ -5,6 +5,7 @@ set -euo pipefail
 DOTFILES_DIR="$HOME/.dotfiles"
 CONFIG_DIR="$DOTFILES_DIR/config"
 
+echo "  ==== STARTING DOTFILES ======="
 # Ensure stow is installed
 if ! command -v stow >/dev/null 2>&1; then
   echo "Error: stow not found."
@@ -17,7 +18,7 @@ if [ ! -d "$CONFIG_DIR" ]; then
   exit 1
 fi
 
-echo "Cleaning old configs in ~/.config…"
+echo "=== Cleaning old configs in ~/.config… ==="
 
 # Remove existing package folders/symlinks
 for package in "$CONFIG_DIR"/*; do
@@ -26,27 +27,28 @@ for package in "$CONFIG_DIR"/*; do
   target="$HOME/.config/$pkgname"
 
   
-  if [ -d "$target" ] && [ ! -L "$target" ]; then
-      echo "  Removing existing folder (not a symlink): $target"
+  if [ -d "$target" ]; then
+      echo "  ...Removing old/default config: $target"
       rm -rf "$target"
   fi
 
   if [ ! -L "$target" ]; then 
-    echo "Existing stowed fodler ===> $target" 
+    echo "  ...Creating folder for stow... $target" 
+    mkdir  "$target"
   fi 
 done
 
-echo "Stowing packages…"
 
 # Stow each package as a whole folder
 for package in "$CONFIG_DIR"/*; do
   [ -d "$package" ] || continue
   pkgname=$(basename "$package")
   echo "  Stowing $pkgname"
-  mkdir "$target"
-  stow --verbose --dir="$CONFIG_DIR" --target="$HOME/.config/$pkgname" "$pkgname"
+  echo "  stow comand --verbose --dir="$CONFIG_DIR" --target="$HOME/.config/$pkgname""
+  stow --verbose --dir="$CONFIG_DIR" --target="$HOME/.config/$pkgname" "$pkgname" || echo "ERROR STOWING $pkgname"
 done
 
 echo "Dotfiles installed successfully."
 
 
+echo "  ==== DONE DOTFILES ======="
