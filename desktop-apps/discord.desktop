@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Discord
+Comment=Chat for Communities and Friends
+Exec=/usr/bin/discord %U
+Icon=discord
+Terminal=false
+Type=Application
+Categories=Network;InstantMessaging;
+StartupWMClass=discord
+StartupNotify=true
+MimeType=x-scheme-handler/discord;
