@@ -44,3 +44,6 @@ echo "  - clippy"
 echo "  - rust-analyzer"
 echo "  - grcov"
 echo "  - cargo-binutils"
+
+export RUSTFLAGS="-Cinstrument-coverage"
+export LLVM_PROFILE_FILE="your_name-%p-%m.profraw"
